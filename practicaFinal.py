@@ -13,10 +13,11 @@ def padre():
 
         pid = os.fork()
 
-        if(pid != 0):
-            print("Iniciando el proceso:",os.getpid(),"a las",fecha())
-        else:
+        if(pid == 0):
             hijo()
+        else:
+            pidHijo = pid
+            print("Iniciando el proceso:",pidHijo,"a las",fecha())
 
 def hijo():
     print("Iniciando el proceso con PID:",os.getpid())
